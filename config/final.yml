@@ -1,0 +1,7 @@
+---
+blobstore:
+  provider: swift
+  options:
+    container_name: generic-scripting-boshrelease
+    swift_provider: openstack
+final_name: generic-scripting
