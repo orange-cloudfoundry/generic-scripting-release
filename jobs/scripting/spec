@@ -1,0 +1,21 @@
+---
+name: scripting 
+packages: []
+templates:
+  config/bpm.yml: config/bpm.yml
+  post-deploy.erb: bin/post-deploy
+  post-start.erb: bin/post-start
+  pre-start.erb: bin/pre-start
+  post-stop.erb: bin/post-stop
+consumes: []
+provides: []
+properties:
+  remote-proxy.ip:
+    description: relay traffic to this host
+  remote-proxy.port:
+    description: relay traffic to this host
+    default: 3128
+  port:
+    description: Bind redsocks process to this port
+    default: 12346
+    

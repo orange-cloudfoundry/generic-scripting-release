@@ -1,0 +1,15 @@
+#!/bin/bash
+
+set -e # exit immediately if a simple command exits with a non-zero status
+set -u # report the usage of uninitialized variables
+
+# Setup env vars and folders for the webapp_ctl script
+#source /var/vcap/jobs/terraform-apply/helpers/ctl_setup.sh 'terraform-apply'
+# see https://learn.hashicorp.com/terraform/development/running-terraform-in-automation
+# see https://learn.hashicorp.com/terraform/development/running-terraform-in-automation#pre-installed-plugins
+
+
+EXITSTATUS=0
+
+echo "post deploy is complete; exit status $EXITSTATUS"
+exit $EXITSTATUS

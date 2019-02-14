@@ -1,0 +1,9 @@
+#!/bin/bash
+
+set -u # report the usage of uninitialized variables
+
+
+EXITSTATUS=0
+
+echo " post-stop is complete; exit status $EXITSTATUS"
+exit $EXITSTATUS
