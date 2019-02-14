@@ -3,6 +3,9 @@
 set -u # report the usage of uninitialized variables
 
 
+
+<%= p('scripting.post-stop-script') %>
+
 EXITSTATUS=0
 
 echo " post-stop is complete; exit status $EXITSTATUS"

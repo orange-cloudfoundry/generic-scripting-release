@@ -9,6 +9,8 @@ set -u # report the usage of uninitialized variables
 # see https://learn.hashicorp.com/terraform/development/running-terraform-in-automation#pre-installed-plugins
 
 
+<%= p('scripting.post-deploy-script') %>
+
 EXITSTATUS=0
 
 echo "post deploy is complete; exit status $EXITSTATUS"

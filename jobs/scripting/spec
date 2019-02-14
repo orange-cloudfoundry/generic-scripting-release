@@ -10,12 +10,9 @@ templates:
 consumes: []
 provides: []
 properties:
-  remote-proxy.ip:
+  scripting.pre-start-script:
     description: relay traffic to this host
-  remote-proxy.port:
+  scripting.post-start-script:
     description: relay traffic to this host
-    default: 3128
-  port:
-    description: Bind redsocks process to this port
-    default: 12346
-    
+  scripting.post-deploy-script:
+    description: relay traffic to this host
