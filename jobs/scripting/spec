@@ -2,7 +2,6 @@
 name: scripting 
 packages: []
 templates:
-  config/bpm.yml: config/bpm.yml
   post-deploy.erb: bin/post-deploy
   post-start.erb: bin/post-start
   pre-start.erb: bin/pre-start
