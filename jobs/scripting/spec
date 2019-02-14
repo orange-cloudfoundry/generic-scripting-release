@@ -11,8 +11,10 @@ consumes: []
 provides: []
 properties:
   scripting.pre-start-script:
-    description: relay traffic to this host
+    description: script to launch at job start
   scripting.post-start-script:
-    description: relay traffic to this host
+    description: script to launch after job start
   scripting.post-deploy-script:
-    description: relay traffic to this host
+    description: script to launch after deployment is complete
+  scripting.post-stop-script:
+    description: script to launch after job stop
