@@ -4,7 +4,7 @@ set -e # exit immediately if a simple command exits with a non-zero status
 set -u # report the usage of uninitialized variables
 
 
-<% if_p('scripting.pre-start-script') -%>
+<% if_p('scripting.pre-start-script') %>
 <%= p('scripting.pre-start-script') %>
 <% end -%>
 
