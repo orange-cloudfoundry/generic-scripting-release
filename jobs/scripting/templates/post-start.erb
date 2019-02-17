@@ -4,9 +4,9 @@ set -e # exit immediately if a simple command exits with a non-zero status
 set -u # report the usage of uninitialized variables
 
 
-<% if_p("scripting.post-start-script") %>
+<% if_p("scripting.post-start-script") do -%>
 <%= p('scripting.post-start-script') %>
-<% end %>
+<% end -%>
 
 
 EXITSTATUS=0
