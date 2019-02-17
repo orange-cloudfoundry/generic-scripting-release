@@ -2,9 +2,9 @@
 
 set -u # report the usage of uninitialized variables
 
-<% if_p('scripting.post-stop-script') do -%>
+<% if_p('scripting.post-stop-script') do |script| %>
 <%= p('scripting.post-stop-script') %>
-<% end -%>
+<% end %>
 
 
 
