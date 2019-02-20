@@ -1,0 +1,13 @@
+name: generic-scripting
+version: "1"
+commit_hash: cce03ab
+uncommitted_changes: false
+jobs:
+- name: scripting
+  version: 8fc5154a5ee8ff2ceeb1e5dbc872f5bf698be3f6
+  fingerprint: 8fc5154a5ee8ff2ceeb1e5dbc872f5bf698be3f6
+  sha1: 83bd48ba6a0edbfbae544d05fbda90b90627a093
+license:
+  version: 990ee2e8690a11f4dc48657f740d7b8381224f83
+  fingerprint: 990ee2e8690a11f4dc48657f740d7b8381224f83
+  sha1: 43ad7eb02b60750b12535eb1c86c01572a7600b4
