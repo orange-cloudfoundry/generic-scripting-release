@@ -1,0 +1,10 @@
+---
+name: errand-scripting 
+packages: []
+templates:
+  run.erb: bin/run
+consumes: []
+provides: []
+properties:
+  scripting.errand-script:
+    description: script to launch at job start
