@@ -1,0 +1,19 @@
+name: generic-scripting
+version: "2"
+commit_hash: 373342e
+uncommitted_changes: false
+jobs:
+- name: errand-scripting
+  version: d35122717f862df72228fdb48b198b992af8716376e93361a5ed32eb70510283
+  fingerprint: d35122717f862df72228fdb48b198b992af8716376e93361a5ed32eb70510283
+  sha1: sha256:ca1a3f579b3011a1c1ba27f4a87209bb15ddc0caed5d209574e5478918d7318b
+  packages: []
+- name: scripting
+  version: 0849a5623fde8dc67f0a747c73a3c73ac7dd23fe86df51d8959a185c5cf120fb
+  fingerprint: 0849a5623fde8dc67f0a747c73a3c73ac7dd23fe86df51d8959a185c5cf120fb
+  sha1: sha256:f9006c844479ce165cc296f2cf9063440deac9761f49bec0ceb31917530a01f8
+  packages: []
+license:
+  version: c52a2c414b935147f0ccbe8d798edbbcd65c5e9084079f727b3fb5727a44e50d
+  fingerprint: c52a2c414b935147f0ccbe8d798edbbcd65c5e9084079f727b3fb5727a44e50d
+  sha1: sha256:d1dad55c014f213daa950c9d9ca01eb422cb97cc5b8b2997d1e1ba8efe5cf3ef
