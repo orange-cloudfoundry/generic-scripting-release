@@ -1,0 +1,15 @@
+#!/bin/bash
+
+set -u # report the usage of uninitialized variables
+
+<% if_p('scripting.pre-stop-script') do |script| %>
+<%= p('scripting.pre-stop-script') %>
+<% end %>
+
+
+
+
+EXITSTATUS=0
+
+echo " pre-stop is complete; exit status $EXITSTATUS"
+exit $EXITSTATUS

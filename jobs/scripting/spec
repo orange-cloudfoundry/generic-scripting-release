@@ -6,6 +6,7 @@ templates:
   post-start.erb: bin/post-start
   pre-start.erb: bin/pre-start
   post-stop.erb: bin/post-stop
+  pre-stop.erb: bin/pre-stop
 consumes: []
 provides: []
 properties:
@@ -16,4 +17,6 @@ properties:
   scripting.post-deploy-script:
     description: script to launch after deployment is complete
   scripting.post-stop-script:
+    description: script to launch after job stop
+  scripting.pre-stop-script:
     description: script to launch after job stop
