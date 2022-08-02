@@ -1,0 +1,27 @@
+---
+name: scripting-list
+packages: []
+templates:
+  post-deploy.erb: bin/post-deploy
+  post-start.erb: bin/post-start
+  pre-start.erb: bin/pre-start
+  post-stop.erb: bin/post-stop
+  pre-stop.erb: bin/pre-stop
+consumes: []
+provides: []
+properties:
+  scripting-list.pre-start-scripts:
+    description: array of scripts to launch at job start
+    default: []
+  scripting-list.post-start-scripts:
+    description: array of scripts  to launch after job start
+    default: []
+  scripting-list.post-deploy-scripts:
+    description: array of scripts to launch after deployment is complete
+    default: []
+  scripting-list.post-stop-scripts:
+    description: array of scripts to launch after job stop
+    default: []
+  scripting-list.pre-stop-scripts:
+    description: array of scripts to launch after job stop
+    default: []

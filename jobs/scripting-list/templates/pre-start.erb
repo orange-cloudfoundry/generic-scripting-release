@@ -1,0 +1,20 @@
+#!/bin/bash
+
+set -e # exit immediately if a simple command exits with a non-zero status
+set -u # report the usage of uninitialized variables
+
+<% if_p('scripting-list.pre-start-scripts') do |value| %>
+<% p('scripting-list.pre-start-scripts').each do |script| %>
+## script list item:
+<%= script %>
+## ---------------
+<% end %>
+<% end %>
+
+
+
+
+EXITSTATUS=0
+
+echo " pre-start list is complete; exit status $EXITSTATUS"
+exit $EXITSTATUS
