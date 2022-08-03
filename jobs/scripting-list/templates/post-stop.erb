@@ -3,8 +3,6 @@ set -e # Exit immediately if a simple command exits with a non-zero status
 set -u # Report the usage of uninitialized variables
 
 #--- Initialize context
-> /var/vcap/sys/log/scripting/post-stop.stderr.log
-> /var/vcap/sys/log/scripting/post-stop.stdout.log
 echo "$(date -u "+%Y-%m-%d %H:%M:%S") => Begin post-stop"
 
 #--- Generate script list to run
