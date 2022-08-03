@@ -1,19 +1,25 @@
 #!/bin/bash
+set -e # Exit immediately if a simple command exits with a non-zero status
+set -u # Report the usage of uninitialized variables
 
-set -e # exit immediately if a simple command exits with a non-zero status
-set -u # report the usage of uninitialized variables
+#--- Initialize context
+> /var/vcap/sys/log/scripting/post-start.stderr.log
+> /var/vcap/sys/log/scripting/post-start.stdout.log
+echo "$(date -u "+%Y-%m-%d %H:%M:%S") => Begin post-start"
 
-
+#--- Generate/run scripts from list
 <% i = 0 %>
 <% if_p('scripting-list.post-start-scripts') do |value| %>
 <% p('scripting-list.post-start-scripts').each do |script| %>
 <% i = i + 1 %>
-echo '<%= script %>' >> /var/vcap/data/scripting-list/shell-<%= i %>.sh
-. /var/vcap/data/scripting-list/shell-<%= i %>.sh
+
+cat > /var/vcap/data/scripting-list/post-start-<%= i %>.sh <<'SCRIPTING_EOF'
+<%= script %>
+SCRIPTING_EOF
+
+. /var/vcap/data/scripting-list/post-start-<%= i %>.sh
 <% end %>
 <% end %>
 
-EXITSTATUS=0
-
-echo " post-start list is complete; exit status $EXITSTATUS"
-exit $EXITSTATUS
+echo "$(date -u "+%Y-%m-%d %H:%M:%S") => End post-start"
+exit 0

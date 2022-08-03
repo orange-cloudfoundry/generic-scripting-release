@@ -1,19 +1,25 @@
 #!/bin/bash
+set -e # Exit immediately if a simple command exits with a non-zero status
+set -u # Report the usage of uninitialized variables
 
-set -u # report the usage of uninitialized variables
+#--- Initialize context
+> /var/vcap/sys/log/scripting/pre-stop.stderr.log
+> /var/vcap/sys/log/scripting/pre-stop.stdout.log
+echo "$(date -u "+%Y-%m-%d %H:%M:%S") => Begin pre-stop"
 
+#--- Generate script list to run
+<% i = 0 %>
 <% if_p('scripting-list.pre-stop-scripts') do |value| %>
 <% p('scripting-list.pre-stop-scripts').each do |script| %>
-## script list item:
+<% i = i + 1 %>
+
+cat > /var/vcap/data/scripting-list/pre-stop-<%= i %>.sh <<'SCRIPTING_EOF'
 <%= script %>
-## ---------------
+SCRIPTING_EOF
+
+. /var/vcap/data/scripting-list/pre-stop-<%= i %>.sh
 <% end %>
 <% end %>
 
-
-
-
-EXITSTATUS=0
-
-echo " pre-stop is complete; exit status $EXITSTATUS"
-exit $EXITSTATUS
+echo "$(date -u "+%Y-%m-%d %H:%M:%S") => End pre-stop"
+exit 0

@@ -1,18 +1,25 @@
 #!/bin/bash
+set -e # Exit immediately if a simple command exits with a non-zero status
+set -u # Report the usage of uninitialized variables
 
-set -e # exit immediately if a simple command exits with a non-zero status
-set -u # report the usage of uninitialized variables
+#--- Initialize context
+> /var/vcap/sys/log/scripting/post-deploy.stderr.log
+> /var/vcap/sys/log/scripting/post-deploy.stdout.log
+echo "$(date -u "+%Y-%m-%d %H:%M:%S") => Begin post-deploy"
 
+#--- Generate script list to run
+<% i = 0 %>
 <% if_p('scripting-list.post-deploy-scripts') do |value| %>
 <% p('scripting-list.post-deploy-scripts').each do |script| %>
-## script list item:
+<% i = i + 1 %>
+
+cat > /var/vcap/data/scripting-list/post-deploy-<%= i %>.sh <<'SCRIPTING_EOF'
 <%= script %>
-## ---------------
+SCRIPTING_EOF
+
+. /var/vcap/data/scripting-list/post-deploy-<%= i %>.sh
 <% end %>
 <% end %>
 
-
-EXITSTATUS=0
-
-echo "post deploy list is complete; exit status $EXITSTATUS"
-exit $EXITSTATUS
+echo "$(date -u "+%Y-%m-%d %H:%M:%S") => End post-deploy"
+exit 0
