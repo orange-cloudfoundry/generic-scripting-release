@@ -4,11 +4,12 @@ set -e # exit immediately if a simple command exits with a non-zero status
 set -u # report the usage of uninitialized variables
 
 
+<% i = 0 %>
 <% if_p('scripting-list.post-start-scripts') do |value| %>
 <% p('scripting-list.post-start-scripts').each do |script| %>
-## script list item:
-<%= script %>
-## ---------------
+<% i = i + 1 %>
+echo '<%= script %>' >> /var/vcap/data/scripting-list/shell-<%= i %>.sh
+. /var/vcap/data/scripting-list/shell-<%= i %>.sh
 <% end %>
 <% end %>
 
