@@ -1,0 +1,23 @@
+#!/bin/bash
+set -e # Exit immediately if a simple command exits with a non-zero status
+set -u # Report the usage of uninitialized variables
+
+#--- Initialize context
+echo "$(date -u "+%Y-%m-%d %H:%M:%S") => Begin post-deploy"
+
+#--- Generate script list to run
+<% i = 0 %>
+<% if_p('scripting-list.post-deploy-scripts') do |value| %>
+<% p('scripting-list.post-deploy-scripts').each do |script| %>
+<% i = i + 1 %>
+
+cat > /var/vcap/data/scripting-list/post-deploy-<%= i %>.sh <<'SCRIPTING_EOF'
+<%= script %>
+SCRIPTING_EOF
+
+. /var/vcap/data/scripting-list/post-deploy-<%= i %>.sh
+<% end %>
+<% end %>
+
+echo "$(date -u "+%Y-%m-%d %H:%M:%S") => End post-deploy"
+exit 0

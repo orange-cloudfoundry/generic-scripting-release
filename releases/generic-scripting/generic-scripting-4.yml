@@ -1,0 +1,24 @@
+name: generic-scripting
+version: "4"
+commit_hash: 75137d8
+uncommitted_changes: false
+jobs:
+- name: errand-scripting
+  version: d35122717f862df72228fdb48b198b992af8716376e93361a5ed32eb70510283
+  fingerprint: d35122717f862df72228fdb48b198b992af8716376e93361a5ed32eb70510283
+  sha1: sha256:ca1a3f579b3011a1c1ba27f4a87209bb15ddc0caed5d209574e5478918d7318b
+  packages: []
+- name: scripting
+  version: 819a2bf4af768a5ef3749415d866261370f0183c5c1034349d96f8151fd8ddb0
+  fingerprint: 819a2bf4af768a5ef3749415d866261370f0183c5c1034349d96f8151fd8ddb0
+  sha1: sha256:ec75700dc33321a06ffa356951be9504c8e644ec14b45a116409ae17112d4f04
+  packages: []
+- name: scripting-list
+  version: 2235bfea58235ef3e90e249831dbee62f4f9dcd768b98c028e6dd9873a63c5f9
+  fingerprint: 2235bfea58235ef3e90e249831dbee62f4f9dcd768b98c028e6dd9873a63c5f9
+  sha1: sha256:0ca5eaff2c98383049678e89e836a86b379f77e8bda337a2965b75aa8601e1ff
+  packages: []
+license:
+  version: c52a2c414b935147f0ccbe8d798edbbcd65c5e9084079f727b3fb5727a44e50d
+  fingerprint: c52a2c414b935147f0ccbe8d798edbbcd65c5e9084079f727b3fb5727a44e50d
+  sha1: sha256:d1dad55c014f213daa950c9d9ca01eb422cb97cc5b8b2997d1e1ba8efe5cf3ef
