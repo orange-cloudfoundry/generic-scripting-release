@@ -1,0 +1,11 @@
+---
+name: errand-scripting-list
+packages: []
+templates:
+  run.erb: bin/run
+consumes: []
+provides: []
+properties:
+  scripting.errand-script-list:
+    description: script list to execute at errand launch
+    default: []
