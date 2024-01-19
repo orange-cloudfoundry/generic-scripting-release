@@ -52,13 +52,29 @@ bosh -n deploy
 
 ### Development
 
+#### On local workstation
 As a developer of this release, create new releases and upload them:
 
 ```
 bosh create release --force && bosh -n upload release
 ```
 
+#### Using GitHub Action
+
+Look at https://github.com/orange-cloudfoundry/generic-scripting-release/actions/workflows/on-commits.yml to find the
+dev release associated to your commit.
+
 ### Final releases
+
+TODO: document
+#### On local workstation and GitHub
+
+1. create a tag locally
+2. push it
+3. observe the result on https://github.com/orange-cloudfoundry/generic-scripting-release/actions/workflows/on-tags.yml
+4. download artefact at https://github.com/orange-cloudfoundry/generic-scripting-release/releases
+
+#### On local workstation
 
 To share final releases:
 
