@@ -34,6 +34,7 @@ jobs:
         with:
           token: ${{ github.token }}
           branch: master
+          noNewCommitBehavior: warn
 
       - name: create bosh release
         id: create-final-bosh-release
