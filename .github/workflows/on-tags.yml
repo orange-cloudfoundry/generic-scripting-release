@@ -1,0 +1,42 @@
+name: release-after-build
+
+on:
+  push:
+    # consider only release and pre-release tags
+    tags:
+      - 'v?[0-9]+.[0-9]+'
+      - 'v?[0-9]+.[0-9]+.[0-9]+' # tag format currently used
+      - 'v?[0-9]+.[0-9]+.[0-9]+-rc[0-9]+'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: create bosh release
+        id: create-final-bosh-release
+        uses: orange-cloudfoundry/create-bosh-release-action@v1.0.1
+        if: success() && startsWith(github.ref, 'refs/tags/')
+        with:
+          target_branch: ${{github.ref_name}}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          AWS_BOSH_ACCES_KEY_ID: ${{ secrets.AWS_BOSH_ACCES_KEY_ID }}
+          AWS_BOSH_SECRET_ACCES_KEY: ${{ secrets.AWS_BOSH_SECRET_ACCES_KEY }}
+
+      # see https://github.com/ncipollo/release-action
+      - name: create github release
+        id: create-github-release
+        uses: ncipollo/release-action@v1.13.0
+        with:
+          tag: ${{ steps.create-final-bosh-release.outputs.tagged_version }}
+          draft: false
+          allowUpdates: false # > indicates if we should update a release if it already exists.
+          generateReleaseNotes: true
+          artifacts: ./${{ steps.create-final-bosh-release.outputs.file }}
+          artifactContentType: application/zip
+          artifactErrorsFailBuild: true # > indicates if artifact read or upload errors should fail the build.
