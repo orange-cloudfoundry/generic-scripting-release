@@ -7,6 +7,8 @@ builds:
     version: "2"
   ad0d6a2a-2420-49ca-50ae-4440083a69a1:
     version: "3"
+  b2c4a547-5753-4b77-7283-a03119ecd356:
+    version: 5.1.1
   c5b7ba92-3a29-4483-4be2-3b620445e864:
     version: "1"
 format-version: "2"
