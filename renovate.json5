@@ -1,0 +1,20 @@
+{
+  $schema: 'https://docs.renovatebot.com/renovate-schema.json',
+  extends: [
+    'config:best-practices', //See https://docs.renovatebot.com/upgrade-best-practices/#use-the-configbest-practices-preset
+    ':disableRateLimiting',
+  ],
+  ignorePaths: [
+    'packages/**',
+    'releases/**',
+    'manifests/**',
+    'jobs/**',
+  ],
+  enabledManagers: ['github-actions'],
+  baseBranches: [
+    // don't run on renovate branches
+    "$default",
+    // See https://docs.renovatebot.com/configuration-options/#basebranches
+    // baseBranches supports Regular Expressions that must begin and end with /
+  ], //See also possible support for multiple base branches, one per K8S minor version https://docs.renovatebot.com/configuration-options/#basebranches
+}
