@@ -66,4 +66,4 @@ jobs:
         with:
           name: archive-bosh-dev-release-tgz
           path: |
-            generic-scripting*.tgz
+            ./${{ steps.create-bosh-release.outputs.file }}
